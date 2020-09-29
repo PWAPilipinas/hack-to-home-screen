@@ -1,2 +1,2 @@
-# hack-to-home-screen
+# Hack to Home Screen
 Hack to Home Screen Repository
