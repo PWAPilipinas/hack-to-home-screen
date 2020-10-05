@@ -21,4 +21,4 @@ npm start
 ```
 
 ## Commit Guidelines
-Please use Commitizen in commiting your changes. You can find more info here `https://www.npmjs.com/package/commitizen`. Typically your commits should look like `feat: add file.html` where `feat` is the action and `add file.html` is the action. The action should be written in present tense.
+Please use Commitizen in commiting your changes to follow the Conventional Commits 1.0.0 spec. You can find more info here `https://www.conventionalcommits.org/en/v1.0.0/` and `https://www.npmjs.com/package/commitizen`. Typically your commits should look like `feat: add file.html` where `feat` is the action and `add file.html` is the action. The action should be written in present tense.
