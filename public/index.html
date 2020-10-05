@@ -6,6 +6,9 @@
 <html lang="en">
   <head>
     <title>To-Do</title>
+    <meta name="Description" content="To-do built during PWA Pilipinas Hacktoberfest">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- Add meta tag to add theme color -->
     <!-- .Add meta tag to add theme color -->
@@ -18,3 +21,32 @@
     <h1>To-Do</h1>
   </body>
 </html>
+<script type="text/javascript" src="assets/js/jquery.min.js" defer></script>
+<script type="text/javascript" src="assets/materialize/js/materialize.min.js" defer></script>
+<script>
+  //PRPL
+  window.onload = ev=>{
+    var css = [
+      "assets/materialize/css/materialize.min.css",
+      "assets/fonts/iconfont/material-icons.css"
+    ];
+    var scripts = [
+      "index.js"
+    ];
+
+    css.forEach(elem=>{
+      var s = document.createElement("link");
+      s.rel = "stylesheet";
+      s.href = elem;
+      document.head.appendChild(s);
+    });
+
+    scripts.forEach(elem=>{
+      var s = document.createElement("script");
+      s.type = "text/javascript";
+      s.defer = true;
+      s.src = elem;
+      document.head.appendChild(s);
+    });
+  };
+</script>
