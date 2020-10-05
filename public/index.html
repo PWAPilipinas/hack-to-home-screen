@@ -16,33 +16,102 @@
     <!-- Add meta tag to set min-width, etc. -->
     <!-- .Add meta tag to set min-width, etc. -->
 
+    <!-- Add above the fold styles -->
+    <style>
+    :root {
+      --primary-color: #072540;
+      --accent-color: #183D5D;
+      --accent-color-two: #9C4668;
+      font-display:auto !important;
+    }
+
+    body {
+      margin:0px;
+      padding:0px;
+      width:100%;
+      height:100%;
+      overscroll-behavior:none;
+      background-color: #f5f5f5;
+    }
+
+    .preloader {
+        background-color: var(--primary-color) !important;
+        height:100% !important;
+        width:100% !important;
+        position:fixed !important;
+        z-index: 99999;
+      }
+
+      #preloaderTitle {
+        position:relative !important;
+        top:45% !important;
+        margin:0px !important;
+        color:white !important;
+        font-size:20pt !important;
+        font-family: Arial, sans-serif !important;
+      }
+
+      .loader {
+        border: 3px solid #f3f3f3 !important;
+        border-top: 3px solid #607d8b !important;
+        border-radius: 50% !important;
+        width: 25px !important;
+        height:25px !important;
+        animation: spin 2s linear infinite !important;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+    <!-- .Add above the fold styles -->
   </head>
   <body>
-    <h1>To-Do</h1>
+    <!--preloader-->
+    <div class="preloader" id="preloader">
+      <h3 id="preloaderTitle">
+          <center>
+            To-Do<br><br>
+              <div class="loader"></div><noscript>Javascript must be turned on</noscript>
+          </center>
+      </h3>
+    </div>
+    <!--.preloader-->
+
+    <div class="activity">
+      <nav class="primary-color">
+        <a class="brand-logo" style="margin-left: 5%;">
+          To-Do
+        </a>
+      </nav>
+    </div>
+
   </body>
 </html>
 <script type="text/javascript" src="assets/js/jquery.min.js" defer></script>
 <script type="text/javascript" src="assets/materialize/js/materialize.min.js" defer></script>
 <script>
-  //PRPL
+  // Below the fold scripts
   window.onload = ev=>{
-    var css = [
+    const css = [
       "assets/materialize/css/materialize.min.css",
-      "assets/fonts/iconfont/material-icons.css"
+      "assets/fonts/iconfont/material-icons.css",
+      "assets/css/styles.css"
     ];
-    var scripts = [
+    const scripts = [
       "index.js"
     ];
 
-    css.forEach(elem=>{
-      var s = document.createElement("link");
+    css.forEach(elem => {
+      const s = document.createElement("link");
       s.rel = "stylesheet";
       s.href = elem;
       document.head.appendChild(s);
     });
 
-    scripts.forEach(elem=>{
-      var s = document.createElement("script");
+    scripts.forEach(elem => {
+      const s = document.createElement("script");
       s.type = "text/javascript";
       s.defer = true;
       s.src = elem;
