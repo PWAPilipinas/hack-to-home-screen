@@ -3,7 +3,16 @@ on:
   push:
     branches:
       - main
+
 jobs:
+  build:
+    name: Install Dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Install Dependencies
+        run: npm install
   deploy:
     name: Deploy
     needs: build
