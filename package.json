@@ -1,0 +1,26 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "To-Do a Hack to Homescreen project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "live-server --port=8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pwa-pilipinas/hack-to-home-screen.git"
+  },
+  "keywords": [
+    "hacktoberfest"
+  ],
+  "author": "PWA Pilipinas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pwa-pilipinas/hack-to-home-screen/issues"
+  },
+  "homepage": "https://github.com/pwa-pilipinas/hack-to-home-screen#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
