@@ -37,14 +37,16 @@ const getTasksList = () => {
  */
 
   const addTask = (task) => {
-  If( task === " ")
-   alert("Enter a valid value");
+  if( task ===" ")
+  {
+    return ("Enter a valid value");}
    else {
     const taskList = getTasks() || [];
     taskList.push({ id: Date.now(), title: task, isDone: false });
     localStorage.setItem('todo', JSON.stringify(taskList));
     return taskList;
   }
+  
 };
 
 /**
