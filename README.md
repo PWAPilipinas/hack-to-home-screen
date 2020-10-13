@@ -9,6 +9,9 @@ Merged PR are automatically deployed using GitHub actions to https://todo.pwapil
 ## Introduction
 We are doing a very simple to-do Progressive Web App. In the end of Hacktoberfest, we should be able to create a PWA To-do app with offline capability through the use of a service worker and manifest.
 
+### Lo-fi mockup
+![Mockup](Frame%17.png)
+
 ## Getting Started
 
 Clone this repository
