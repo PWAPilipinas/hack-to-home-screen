@@ -7,7 +7,7 @@ Hack to Home Screen Repository
 
 Clone this repository
 ```bash
-git clone https://github.com/pwa-pilipinas/hack-to-homescreen
+git clone https://github.com/pwa-pilipinas/hack-to-home-screen
 ```
 
 Install the necessary dependencies
