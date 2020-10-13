@@ -8,6 +8,8 @@
     <title>To-Do</title>
     <meta name="Description" content="To-do built during PWA Pilipinas Hacktoberfest">
     <meta charset="utf-8" />
+    <!-- Add bootstrap to add styles -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- Add meta tag to add theme color -->
@@ -93,7 +95,13 @@
         </a>
       </nav>
     </div>
+    <h3>Enter Task </h3>
 
+      <div class="form-group">
+        <label> <h3>Task</h3> </label>
+        <input class="form-control"  type="text" id="gettask">
+        <button  onclick="addTask(document.getElementById('gettask').value)" class="btn btn-primary" type="submit" name="button">Add Task</button>
+      </div>
   </body>
 </html>
 <script type="text/javascript" src="assets/js/jquery.min.js" defer></script>

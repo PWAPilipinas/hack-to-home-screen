@@ -1,7 +1,7 @@
 /**
  * To-Do
  * Hack to Home Screen
- * 
+ *
  * PWA Pilipinas
  */
 $(document).ready(() => {
@@ -33,18 +33,23 @@ const getTasksList = () => {
 
 /**
  * addTask
- * @param {string} task 
+ * @param {string} task
  */
-const addTask = (task) => {
+
+  const addTask = (task) => {
+  If( task === " ")
+   alert("Enter a valid value");
+   else {
     const taskList = getTasks() || [];
     taskList.push({ id: Date.now(), title: task, isDone: false });
     localStorage.setItem('todo', JSON.stringify(taskList));
     return taskList;
+  }
 };
 
 /**
  * deleteTask
- * @param {string | number} taskId 
+ * @param {string | number} taskId
  */
 const deleteTask = (taskId) => {
     let taskList = getTasks() || [];
@@ -55,7 +60,7 @@ const deleteTask = (taskId) => {
 
 /**
  * getTask
- * @param {string | number} taskId 
+ * @param {string | number} taskId
  */
 const getTask = (taskId) => {
     let taskList = getTasks() || [];
@@ -65,7 +70,7 @@ const getTask = (taskId) => {
 
 /**
  * toggleTask
- * @param {string | number} taskId 
+ * @param {string | number} taskId
  */
 const toggleTask = (taskId) => {
     let taskList = getTasks() || [];
