@@ -8,6 +8,7 @@ $(document).ready(() => {
     console.log('Mabuhay PWA Pilipinas!');
     $('.preloader').fadeOut();
     listUncompletedTasks();
+    listCompletedTasks();
 });
 
 /**
@@ -88,6 +89,18 @@ const listUncompletedTasks = () => {
         displayTaskItemUI(task, '.tasks-todo');
     });
     $('.tasks-todo .task-item').last().remove();
+};
+
+/**
+ * listCompletedTasks
+ */
+const listCompletedTasks = () => {
+    let tasksDone = getTasksList() || [];
+    tasksDone = tasksDone.filter(e => e.isDone);
+    tasksDone.forEach(function(task) {
+        displayTaskItemUI(task, '.tasks-done');
+    });
+    $('.tasks-done .task-item').last().remove();
 };
 
 /**
