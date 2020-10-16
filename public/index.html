@@ -76,6 +76,14 @@
         width: 100%;
       }
 
+      .task-item:not(:last-child) {
+        border-bottom: 2px solid #eceff1;
+      }
+
+      .task-item .row {
+        margin: 0;
+      }
+
     </style>
     <!-- .Add above the fold styles -->
   </head>
@@ -120,12 +128,15 @@
     <br>
 
     <div class="container ">
-        <div class="card blue-grey lighten-5">
-          <div class="card-content">
+        <div class="tasks-todo card blue-grey lighten-5">
+          <div class="title card-content">
             <div class="card-title">To-Do</div>
           </div>
-          <div class="card-content blue-grey lighten-4 z-depth-0">
-            Insert task list here
+          <div class="task-item card-content blue-grey lighten-4 z-depth-0">
+            <div class="row">
+              <div class="col s10 task-title">Insert task list here</div>
+              <div class="col s2 options right-align">[ICONS]</div>
+            </div>
           </div>
         </div>
     </div>
