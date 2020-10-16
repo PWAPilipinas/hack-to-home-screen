@@ -71,6 +71,11 @@
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
       }
+
+      .btn {
+        width: 100%;
+      }
+
     </style>
     <!-- .Add above the fold styles -->
   </head>
@@ -95,11 +100,21 @@
     </div>
 
     <div class="container">
-      <label for="addNew">Add Task:</label>
-      <input type="text" id = "new__task" name="new__task" placeholder="Enter new task here" required>
-      <button class="btn waves-effect waves-light" type="submit" name="action" onclick="addTask(document.getElementById('new__task').value)">Submit
-        <i class="material-icons right">send</i>
-      </button>
+      <div class="card blue-grey lighten-5">
+        <div class="card-content">
+          <label for="addNew" class="black-text">Add Task:</label>
+          <div class="row input-field">
+            <div class="col s12 l10">
+              <input class="white" type="text" id = "new__task" name="new__task" placeholder="Enter new task here" required>
+            </div>
+            <div class="col s6 m4 l2">
+              <button class="btn primary-color waves-effect waves-light " type="submit" name="action" onclick="addTask(document.getElementById('new__task').value)">Submit
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="container">
@@ -114,7 +129,7 @@
         </div>
       </div>
     </div>
-    
+
 
   </body>
 </html>
