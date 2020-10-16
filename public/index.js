@@ -7,6 +7,7 @@
 $(document).ready(() => {
     console.log('Mabuhay PWA Pilipinas!');
     $('.preloader').fadeOut();
+    listUncompletedTasks();
 });
 
 /**
@@ -75,4 +76,29 @@ const toggleTask = (taskId) => {
     })
     localStorage.setItem('todo', JSON.stringify(taskList));
     return taskList;
+};
+
+/**
+ * listUncompletedTasks
+ */
+const listUncompletedTasks = () => {
+    let tasksTodo = getTasksList() || [];
+    tasksTodo = tasksTodo.filter(e => !e.isDone);
+    tasksTodo.forEach(function(task) {
+        displayTaskItemUI(task, '.tasks-todo');
+    });
+    $('.tasks-todo .task-item').last().remove();
+};
+
+/**
+ * displayTaskItemUI
+ * @param {string} task 
+ * @param {string} taskListContainer
+ */
+const displayTaskItemUI = (task, taskListContainer) => {
+    const template = $(taskListContainer + ' .task-item').last();
+    let taskItemUI = template.clone();
+    taskItemUI.attr('id', task.id);
+    taskItemUI.find('.task-title').text(task.title);
+    $(taskListContainer + ' .title').after(taskItemUI);
 };
