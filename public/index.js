@@ -9,6 +9,24 @@ $(document).ready(() => {
     $('.preloader').fadeOut();
 });
 
+//add Todo from input
+$("input[type='text']").keypress(function (event) {
+    var todo = $(this).val()
+    if (event.which === 13 && todo != "") {
+        //13 keyvalue is for enter key
+        addTask(todo); //add that todo
+        $(this).val(""); //empty the input after pressing enter.
+        M.toast({ html: 'New Task added!' }) //Materialize toast for task addition
+    };
+    $("#submit").on("click", function () { //user can also add tasks by pressing submit button.
+        if (todo != "") {
+            addTask(todo); //add that todo
+            $("input[type='text']").val(""); //empty the input after clicking submit.
+
+        };
+    });
+});
+
 /**
  * getTasks
  */
