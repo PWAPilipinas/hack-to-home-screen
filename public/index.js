@@ -22,7 +22,8 @@ $("input[type='text']").keypress(function (event) {
         if (todo != "") {
             addTask(todo); //add that todo
             $("input[type='text']").val(""); //empty the input after clicking submit.
-
+            M.toast({ html: 'New Task added!' }) //Materialize toast for task addition
+            M.Toast.dismiss();
         };
     });
 });
