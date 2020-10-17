@@ -51,7 +51,8 @@ const deleteTask = (taskId) => {
     let taskList = getTasks() || [];
     taskList = taskList.filter(e => { if(e.id !== +taskId) return e });
     localStorage.setItem('todo', JSON.stringify(taskList));
-    return taskList;
+    console.log(taskId);
+    $('#' + taskId).remove();
 };
 
 /**
@@ -96,9 +97,11 @@ const listUncompletedTasks = () => {
  * @param {string} taskListContainer
  */
 const displayTaskItemUI = (task, taskListContainer) => {
+    console.log("load");
     const template = $(taskListContainer + ' .task-item').last();
     let taskItemUI = template.clone();
     taskItemUI.attr('id', task.id);
+    taskItemUI.find('.delete-btn').attr('data-id', task.id);
     taskItemUI.find('.task-title').text(task.title);
     $(taskListContainer + ' .title').after(taskItemUI);
 };

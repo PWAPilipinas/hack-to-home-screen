@@ -135,7 +135,9 @@
           <div class="task-item card-content blue-grey lighten-4 z-depth-0">
             <div class="row">
               <div class="col s10 task-title">Insert task list here</div>
-              <div class="col s2 options right-align">[ICONS]</div>
+              <div class="col s2 options right-align">[ICONS]<span class="material-icons delete-btn waves-effect waves-light btn" onclick="deleteTask(event.target.getAttribute('data-id'))">
+                delete
+                </span></div>
             </div>
           </div>
         </div>

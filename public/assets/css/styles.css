@@ -5,3 +5,15 @@
 .primary-color-text {
     color: var(--primary-color);
 }
+
+span.delete-btn{
+  cursor: pointer;
+  width: 40px;
+  background-color: #cf372c;  
+  padding: 5px 0px;
+  color: white;
+}
+
+span.delete-btn:hover, .delete-btn:focus{
+  background-color: var(--accent-color-two);  
+}
