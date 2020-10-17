@@ -9,6 +9,15 @@ $(document).ready(() => {
     $('.preloader').fadeOut();
     listUncompletedTasks();
     listCompletedTasks();
+
+    /* Add task events */
+    $('#new__task').on('keypress', function(e) {
+        (e.which == 13)? addTaskEvent() : '';
+    });
+
+    $('#action').click(function() {
+        addTaskEvent();
+    });
 });
 
 /**
@@ -39,9 +48,10 @@ const getTasksList = () => {
  */
 const addTask = (task) => {
     const taskList = getTasks() || [];
-    taskList.push({ id: Date.now(), title: task, isDone: false });
+    const newTask = { id: Date.now(), title: task, isDone: false };
+    taskList.push(newTask);
     localStorage.setItem('todo', JSON.stringify(taskList));
-    return taskList;
+    return newTask;
 };
 
 /**
@@ -88,7 +98,6 @@ const listUncompletedTasks = () => {
     tasksTodo.forEach(function(task) {
         displayTaskItemUI(task, '.tasks-todo');
     });
-    $('.tasks-todo .task-item').last().remove();
 };
 
 /**
@@ -100,18 +109,35 @@ const listCompletedTasks = () => {
     tasksDone.forEach(function(task) {
         displayTaskItemUI(task, '.tasks-done');
     });
-    $('.tasks-done .task-item').last().remove();
 };
 
 /**
  * displayTaskItemUI
- * @param {string} task 
+ * @param {object} task 
  * @param {string} taskListContainer
+ * @param {boolean} isNew
  */
-const displayTaskItemUI = (task, taskListContainer) => {
+const displayTaskItemUI = (task, taskListContainer, isNew = false) => {
     const template = $(taskListContainer + ' .task-item').last();
     let taskItemUI = template.clone();
+    taskItemUI.removeAttr('style');
     taskItemUI.attr('id', task.id);
     taskItemUI.find('.task-title').text(task.title);
-    $(taskListContainer + ' .title').after(taskItemUI);
+    (isNew)? $(template).after(taskItemUI) : $(taskListContainer + ' .title').after(taskItemUI);
+};
+
+/**
+ * addTaskEvent
+ */
+const addTaskEvent = () => {
+    let newTask = $('#new__task').val();
+    
+    if ($.trim(newTask)) {
+        displayTaskItemUI(addTask(newTask), '.tasks-todo', true);
+        M.toast({html: 'New task added!', classes: 'green darken-1'});
+    } else {
+        M.toast({html: 'Please input your new task.', classes: 'red darken-1'});
+    }
+
+    $('#new__task').val('');
 };
