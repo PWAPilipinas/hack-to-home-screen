@@ -10,24 +10,32 @@ $(document).ready(() => {
 });
 
 //add Todo from input
-$("input[type='text']").keypress(function (event) {
-    var todo = $(this).val()
-    if (event.which === 13 && todo != "") {
+$('#new__task').keypress(function(event) {
+    if (event.which === 13) {
         //13 keyvalue is for enter key
-        addTask(todo); //add that todo
-        $(this).val(""); //empty the input after pressing enter.
-        M.toast({ html: 'New Task added!' }) //Materialize toast for task addition
+        newTask(); 
     };
-    $("#submit").on("click", function () { //user can also add tasks by pressing submit button.
-        if (todo != "") {
-            addTask(todo); //add that todo
-            $("input[type='text']").val(""); //empty the input after clicking submit.
-            M.toast({ html: 'New Task added!' }) //Materialize toast for task addition
-            M.Toast.dismiss();
-        };
+    $("#submit").unbind().click(function(e) { //user can also add tasks by pressing submit button.
+        newTask();
+        console.log()
     });
 });
 
+/**
+* add new tasks and toast messages on addition
+*/
+const newTask = () => {
+    let todo = $('#new__task').val()
+    if (todo != "") {
+        todo = $.trim(todo);
+        addTask(todo); //add that todo
+        M.toast({ html: 'New task added!', classes: 'green darken-1' }); //Materialize toast for task addition
+    } 
+    else {
+        M.toast({ html: 'Please add an input first', classes: 'red darken-1' });
+    }
+    $('#new__task').val(""); //empty the input after clicking submit or enter key.
+};
 /**
  * getTasks
  */
