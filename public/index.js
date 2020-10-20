@@ -11,6 +11,32 @@ $(document).ready(() => {
     listCompletedTasks();
 });
 
+//add Todo from input
+$('#new__task').keypress(function(event) {
+    if (event.which === 13) {
+        //13 keyvalue is for enter key
+        newTask(); 
+    };
+    $("#submit").unbind().click(function(e) { //user can also add tasks by pressing submit button.
+        newTask();
+    });
+});
+
+/**
+* add new tasks and toast messages on addition
+*/
+const newTask = () => {
+    let todo = $('#new__task').val()
+    if (todo != "") {
+        todo = $.trim(todo);
+        addTask(todo); //add that todo
+        M.toast({ html: 'New task added!', classes: 'green darken-1' }); //Materialize toast for task addition
+    } 
+    else {
+        M.toast({ html: 'Please add an input first', classes: 'red darken-1' });
+    }
+    $('#new__task').val(""); //empty the input after clicking submit or enter key.
+};
 /**
  * getTasks
  */
