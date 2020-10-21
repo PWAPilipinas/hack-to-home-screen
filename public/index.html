@@ -107,13 +107,13 @@
       </nav>
     </div>
 
-    <div class="container">
+    <div class="container" style="margin-top: 50px;">
       <div class="card blue-grey lighten-5">
         <div class="card-content">
           <label for="addNew" class="black-text">Add Task:</label>
           <div class="row input-field">
             <div class="col s12 l10">
-              <input class="white" type="text" id = "new__task" name="new__task" placeholder="Enter new task here" required>
+              <input class="transparent" type="text" id = "new__task" name="new__task" placeholder="Enter new task here" required>
             </div>
             <div class="col s6 m4 l2">
               <button id="submit" class="btn primary-color waves-effect waves-light " type="submit" name="action">Submit
@@ -132,34 +132,18 @@
           <div class="title card-content">
             <div class="card-title">To-Do</div>
           </div>
-          <div class="task-item card-content blue-grey lighten-4 z-depth-0">
-            <div class="row valign-wrapper">
-              <div class="col m9 s8 task-title">Insert task list here</div>
-              <div class="col m3 s4 options right-align">
-                <a data-id="" class="btn-small action check-todo blue darken-1 white-text"><i class="material-icons">check</i></a>
-                <a data-id="" class="btn-small action delete red darken-1 white-text"><i class="material-icons">delete</i></a>
-              </div>
-            </div>
-          </div>
+          <div class="tasks-todo-list"></div>
         </div>
     </div>
     
     <br>
 
-    <div class="container ">
+    <div class="container" style="margin-bottom: 150px;">
         <div class="tasks-done card blue-grey lighten-5">
           <div class="title card-content">
             <div class="card-title">Done</div>
           </div>
-          <div class="task-item card-content blue-grey lighten-4 z-depth-0">
-            <div class="row valign-wrapper">
-              <div class="col m9 s8 task-title">Insert task list here</div>
-              <div class="col m3 s4 options right-align">
-                <a data-id="" class="btn-small action check-done blue darken-1 white-text"><i class="material-icons">check</i></a>
-                <a data-id="" class="btn-small action delete red darken-1 white-text"><i class="material-icons">delete</i></a>
-              </div>
-            </div>
-          </div>
+          <div class="tasks-done-list"></div>
         </div>
     </div>
 
