@@ -9,6 +9,14 @@ $(document).ready(() => {
     $('.preloader').fadeOut();
     listUncompletedTasks();
     listCompletedTasks();
+
+     /* Delete task event listener */
+     $('.delete').click(function() {
+        const id = $(this).attr('data-id');
+        deleteTask(id);
+        $('#' + id).remove(); // remove task from UI
+        M.toast({ html: 'Task successfully deleted!', classes: 'green darken-1' });
+     });
 });
 
 //add Todo from input
@@ -138,6 +146,7 @@ const displayTaskItemUI = (task, taskListContainer) => {
     const template = $(taskListContainer + ' .task-item').last();
     let taskItemUI = template.clone();
     taskItemUI.attr('id', task.id);
+    taskItemUI.find('.action').attr('data-id', task.id);
     taskItemUI.find('.task-title').text(task.title);
     $(taskListContainer + ' .title').after(taskItemUI);
 };
