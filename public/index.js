@@ -73,7 +73,7 @@ const getTasksList = () => {
  */
 const addTask = (task) => {
     const taskList = getTasks() || [];
-    taskList.push({ id: Date.now(), title: task, isDone: true });
+    taskList.push({ id: Date.now(), title: task, isDone: false });
     localStorage.setItem('todo', JSON.stringify(taskList));
     return taskList;
 };
