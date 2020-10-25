@@ -17,15 +17,15 @@ $('#new__task').keypress(function(event) {
         //13 keyvalue is for enter key
         newTask(); 
     };
-    $("#submit").unbind().click(function(e) { //user can also add tasks by pressing submit button.
-        newTask();
-    });
 });
 
 /**
 * add new tasks and toast messages on addition
 */
 const newTask = () => {
+    $("#submit").unbind().click(function(e) { //user can also add tasks by pressing submit button.
+        newTask();
+    });
     let todo = $('#new__task').val()
     if (todo != "") {
         todo = $.trim(todo);
