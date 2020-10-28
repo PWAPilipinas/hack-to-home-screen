@@ -1,5 +1,6 @@
 {
  "name": "To Do",
  "short_name": "To Do",
- "theme_color": "#072540",   
+ "theme_color": "#072540",
+ "background_color": "#ffffff",   
 }
