@@ -2,5 +2,6 @@
  "name": "To Do",
  "short_name": "To Do",
  "theme_color": "#072540",
- "background_color": "#ffffff",   
+ "background_color": "#ffffff",
+  "display": "standalone"
 }
