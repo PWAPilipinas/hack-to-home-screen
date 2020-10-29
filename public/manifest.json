@@ -3,5 +3,6 @@
  "short_name": "To Do",
  "theme_color": "#072540",
  "background_color": "#ffffff",
-  "display": "standalone"
+  "display": "standalone",
+  "scope": "./"
 }
