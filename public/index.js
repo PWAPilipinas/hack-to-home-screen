@@ -12,10 +12,10 @@ $(document).ready(() => {
 });
 
 //add Todo from input
-$('#new__task').keypress(function(event) {
+$('#new__task').keypress(function (event) {
     if (event.which === 13) {
         //13 keyvalue is for enter key
-        newTask(); 
+        newTask();
     };
 });
 
@@ -23,7 +23,7 @@ $('#new__task').keypress(function(event) {
 * add new tasks and toast messages on addition
 */
 const newTask = () => {
-    $("#submit").unbind().click(function(e) { //user can also add tasks by pressing submit button.
+    $("#submit").unbind().click(function (e) { //user can also add tasks by pressing submit button.
         newTask();
     });
     let todo = $('#new__task').val()
@@ -31,7 +31,7 @@ const newTask = () => {
         todo = $.trim(todo);
         addTask(todo); //add that todo
         M.toast({ html: 'New task added!', classes: 'green darken-1' }); //Materialize toast for task addition
-    } 
+    }
     else {
         M.toast({ html: 'Please add an input first', classes: 'red darken-1' });
     }
@@ -42,7 +42,7 @@ const newTask = () => {
  */
 const getTasks = () => {
     try {
-        return (JSON.parse(localStorage.getItem('todo'))).sort((a,b) => a.id - b.id) || [];
+        return (JSON.parse(localStorage.getItem('todo'))).sort((a, b) => a.id - b.id) || [];
     } catch (e) {
         return [];
     }
@@ -53,7 +53,7 @@ const getTasks = () => {
  */
 const getTasksList = () => {
     try {
-        return (JSON.parse(localStorage.getItem('todo'))).sort((a,b) => b.id - a.id) || [];
+        return (JSON.parse(localStorage.getItem('todo'))).sort((a, b) => b.id - a.id) || [];
     } catch (e) {
         return [];
     }
@@ -86,7 +86,7 @@ const addTask = (task) => {
  */
 const deleteTask = (taskId) => {
     let taskList = getTasks() || [];
-    taskList = taskList.filter(e => { if(e.id !== +taskId) return e });
+    taskList = taskList.filter(e => { if (e.id !== +taskId) return e });
     localStorage.setItem('todo', JSON.stringify(taskList));
     return taskList;
 };
@@ -108,7 +108,7 @@ const getTask = (taskId) => {
 const toggleTask = (taskId) => {
     let taskList = getTasks() || [];
     taskList = taskList.map(e => {
-        if(e.id === +taskId) e.isDone = e.isDone ? false : true;
+        if (e.id === +taskId) e.isDone = e.isDone ? false : true;
         return e;
     })
     localStorage.setItem('todo', JSON.stringify(taskList));
@@ -123,7 +123,7 @@ const listUncompletedTasks = () => {
     let tasksTodo = getTasksList() || [];
     tasksTodo = tasksTodo.filter(e => !e.isDone);
     $('.tasks-todo-list').html('');
-    tasksTodo.forEach(function(task) {
+    tasksTodo.forEach(function (task) {
         displayTaskItemUI(task, '.tasks-todo');
     });
 };
@@ -135,7 +135,7 @@ const listCompletedTasks = () => {
     let tasksDone = getTasksList() || [];
     tasksDone = tasksDone.filter(e => e.isDone);
     $('.tasks-done-list').html('');
-    tasksDone.forEach(function(task) {
+    tasksDone.forEach(function (task) {
         displayTaskItemUI(task, '.tasks-done');
     });
 };
@@ -177,7 +177,7 @@ const deleteTaskUI = (id) => {
  */
 const displayTaskItemUI = (task, taskListContainer) => {
     let tpl = '';
-    if(taskListContainer === '.tasks-todo') {
+    if (taskListContainer === '.tasks-todo') {
         tpl = `
         <div class="task-item card-content blue-grey lighten-4 z-depth-0" id="${task.id}">
             <div class="row valign-wrapper">
