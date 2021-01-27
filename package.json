@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "To-Do a Hack to Homescreen project",
   "main": "server.js",
+  "dependencies": {
+    "web-vitals": "^0.2.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "live-server --port=8080"
